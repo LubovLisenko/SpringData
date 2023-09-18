@@ -1,6 +1,5 @@
 package com.example.springData.Entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -9,9 +8,12 @@ import lombok.*;
 @Setter
 @Entity
 public class Note {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
+    @Column
     private String title;
+    @Column
     private String content;
 }
 

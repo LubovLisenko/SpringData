@@ -27,15 +27,13 @@ public class NoteController {
 
     @PostMapping("/create")
     public ModelAndView addNote(@ModelAttribute("note") Note note) {
-        noteService.add(note);
-        //ModelAndView result = new ModelAndView("redirect:/note/list");
+        noteService.add(note);;
         return new ModelAndView("redirect:/note/list");
     }
 
     @PostMapping("/delete")
     public ModelAndView deleteNote(@RequestParam Long id) {
         noteService.deleteById(id);
-       // ModelAndView result = new ModelAndView("redirect:/note/list");
         return new ModelAndView("redirect:/note/list");
     }
 
@@ -49,7 +47,6 @@ public class NoteController {
     @PostMapping("/edit")
     public ModelAndView renameNote(@ModelAttribute("note") Note note) {
     noteService.update(note);
-    //ModelAndView result = new ModelAndView("redirect:/note/list");
     return new ModelAndView("redirect:/note/list");
     }
 }
